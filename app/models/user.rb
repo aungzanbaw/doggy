@@ -1,4 +1,3 @@
-require 'securerandom'
 class User < ApplicationRecord
   has_secure_token :auth_token
   before_create :set_auth_token
@@ -10,6 +9,6 @@ class User < ApplicationRecord
     end
 
     def generate_auth_token
-      Securerandom.uuid.gsub(/\-/,'')
+      SecureRandom.uuid.gsub(/\-/,'')
     end
 end
